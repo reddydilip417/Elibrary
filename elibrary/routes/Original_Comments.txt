@@ -1,0 +1,34 @@
+// Original Comments
+
+//  START  TIME  TAKING  LOOP
+for(var i = 0; i < comments.length; ++i){
+	userSchema.find({_id:comments[i].owner},function(err,user){
+		comments[i].user = user
+	})
+}
+//  END  OF  TIME TAKING  LOOP
+
+res.render('cmmtns'.....)
+
+
+
+
+
+
+
+Statement 0
+
+Something.find(<QUERY>,function(err,result){
+	Statement 1
+})
+
+Statement 2
+
+
+0-> 2 -> 1
+
+Something.findOne({att1:val1},function(err,res){
+	do something using res
+})
+
+SELECT * FROM Something WHERE  att1=val1

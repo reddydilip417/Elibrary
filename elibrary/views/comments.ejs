@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>E-Library</title>
+     
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+    <link href="css/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/fonts/font-awesome.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#663fb5">
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#663fb5">
+    <!-- Only needed Bootstrap bits + custom CSS in one file -->
+   
+  </head>
+
+  <body>
+      
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+                
+             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="img/logo.png" height=30 width=41></a>
+                
+             </div>
+                
+             <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i> <span style="color:white">Home</span></a></li>              
+                </ul>
+            <ul class="nav navbar-nav navbar-right">
+                     
+                <form role="form" method="get" action="/comments/logout">
+                                          
+                   <button class="btn btn-info btn-sm" type="submit" ><i class="fa fa-lg fa-sign-in" aria-hidden="true"></i>
+                        Logout</button>
+                    
+                </form> 
+                
+            </ul>
+             </div>
+        
+             
+        </div>
+    </nav>
+      
+         <div class="container">
+        <div class="row row-content">
+    
+         <div class="col-xs-12">
+              <h2>Book Search</h2> 
+         </div>
+        <h4>Based on Book Name</h4>
+         <form class="form-horizontal" role="form" id="bn" method="post" action="/comments">
+            <div class="form-group">
+                        <label for="bookname" class="col-sm-2 control-label">Book Name</label>                        
+                <div class="col-sm-8">
+                        <input required type="text" class="form-control form-control-lg" id="bookname" name="bookname" placeholder="Enter Book Name">
+                      
+                </div>
+                <div class="col-sm-2">
+                <button type="submit" onclick="formbook(event)" class="btn btn-primary">Search</button>  
+                </div>
+            </div>
+                
+                
+        </form>
+        <h4>Based on Author Name</h4>
+        <form class="form-horizontal" role="form" method="put" id="ars" action="/comments">
+            <div class="form-group">
+                        <label for="authorname" ng-model="authorname" class="col-sm-2 control-label">Author Name</label>                        
+                        <div class="col-sm-8">
+                        <input required type="text" class="form-control form-control-lg" id="authorname" name="authorname" placeholder="Enter Author Name">
+                      
+                </div>
+                <div class="col-sm-2">
+                <button type="submit" onclick="formauth(event)" class="btn btn-primary">Search</button>  
+                </div>
+            </div>
+                
+                
+        </form>
+            <h4>Based on Category</h4>
+            
+             <form class="form-horizontal" role="form" id="cat" method="copy" action="">
+            <div class="form-group">
+                        <label for="category" class="col-sm-2 control-label">Category</label>                        
+                        <div class="col-sm-8">
+                        <input required type="text" class="form-control form-control-lg" id="category" name="category" placeholder="Enter Category">
+                      
+                </div>
+                <div class="col-sm-2">
+                <button type="submit" onclick="formcat(event)" class="btn btn-primary">Search</button>  
+                </div>
+            </div>
+                
+                
+            </form>
+      
+        </div>
+             
+             
+             
+             
+        <div class="col-md-8 col-xl-8 col-xl-offset-2">
+         <h2>Search Results</h2>
+             
+        <div id="ar" class="col-sm-offset-1">
+      <h4>Based on Authorname</h4>
+             
+        </div>
+        
+        <div id="bns" class="col-sm-offset-1">
+      <h4>Based on Bookname</h4>
+             
+        </div>
+                 
+        <div id="cats" class="col-sm-offset-1">
+      
+             <h4>Based on Category</h4>
+        </div>
+                 
+            
+        </div>    
+             
+    
+    </div>
+    
+      
+      
+      
+  
+
+      
+    <footer>
+        <div class="container">
+            <div class="row row-footer">             
+                <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/">Home</a></li>
+                       
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              48, Clear Water Bay Road<br>
+		              Clear Water Bay, Kowloon<br>
+		              India<br>
+		              <i class="fa fa-phone"></i>: +852 1234 5678<br>
+		              <i class="fa fa-fax"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope"></i>: 
+                      <a href="mailto:confusion@food.net">contact@lib.net</a>
+                    </address>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                     <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook social social-facebook"></i></a>
+                       
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <p style="padding:10px;"></p>
+                    <p align=center>© Copyright 2016 Lambhor E-library</p>
+                </div>
+            </div>
+        </div>
+    </footer>  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/comments.js"></script>
+    <script src="js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+   <script src="js/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="js/landio.min.js"></script>
+  </body>
+</html>
